@@ -146,6 +146,9 @@ class NEM12(object):
                         MSTATS_time = None
                         day_row += [quality_method, reason_code, reason_desc,
                                     update_time, MSTATS_time]
+                        for i in range(len(day_row)):
+                            if type(day_row[i]) == float:
+                                day_row[i] = "{:f}".format(day_row[i])
                         writer.writerow(day_row)
                         if event_rows:
                             for event_row in event_rows:
